@@ -1,0 +1,24 @@
+from phi.model.groq import Groq
+from phi.agent import Agent
+from phi.tools.exa import ExaTools
+from dotenv import load_dotenv
+
+load_dotenv()
+
+agent = Agent(
+    name="Travel_AIagent",
+    model = Groq(id="llama-3.3-70b-versatile"),
+    tools=[ExaTools()],
+    markdown=True,
+    description="You are an expert itinerary planning agent. Your role is to assist users in creating detailed, customized travel plans tailored to their preferences and needs.",
+    instructions=[
+        "Use Exa to search and extract relevant data from reputable travel platforms.",
+        "Collect information on flights, accommodations, local attractions, and estimated costs from these sources.",
+        "Do not include direct links to external websites or booking platforms in the response."
+    ],
+)
+
+agent.print_response(
+    "I want to plan a family holiday for 5 people for 3 days (28th-30th May 2025) in Haridwar within 50000 rupees. Please suggest options for places to stay, activities, with transportation and activities",
+    stream=True,
+)
