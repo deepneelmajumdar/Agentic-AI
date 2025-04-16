@@ -4,3 +4,10 @@ Place the GROK_API_KEY=" " and EXA_API_KEY=" " from groq and exa respectively.
 The following installations are required:
 pip install groq 
 pip install exa 
+
+For "shopping-team" multi-agent agentic ai codes, follow the procedure:
+In the .env file, place FIRECRAWL_API_KEY=" " and GOOGLE_API_KEY=" "
+
+The following installations are required:
+pip install google-genai
+pip install firecrawl-py
